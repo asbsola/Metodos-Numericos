@@ -42,9 +42,9 @@ def runge_kutta_forth_order(interval, F, y_0, h):
     for i in range(partitions):
         t = i * h + interval[0]
         k1 = F(t, y[i]) * h
-        k2 = F(t + h/2, y[i] + k1*h/2) * h
-        k3 = F(t + h/2, y[i] + k2*h/2) * h
-        k4 = F(t + h, y[i] + k3*h) * h
+        k2 = F(t + h/2, y[i] + k1/2) * h
+        k3 = F(t + h/2, y[i] + k2/2) * h
+        k4 = F(t + h, y[i] + k3) * h
         y[i+1] = y[i] + (k1 + 2*k2 + 2*k3 + k4)/6
     return y
 
